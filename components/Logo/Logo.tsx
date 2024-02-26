@@ -21,13 +21,7 @@ const Logo = ({ href, ...others }: LogoProps) => {
       {...others}
     >
       <Group gap="xs">
-        <Image
-          src="/logo-no-background.png"
-          height={24}
-          width={24}
-          alt="design sparx logo"
-        />
-        <Text fw={700}>Mantine admin</Text>
+        <Text fw={500}>Acme admin</Text>
       </Group>
     </UnstyledButton>
   );

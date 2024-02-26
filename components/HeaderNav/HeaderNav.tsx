@@ -278,42 +278,10 @@ const HeaderNav = (props: HeaderNavProps) => {
           size="sm"
         />
         {/*<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="md" size="sm"/>*/}
-        {!mobile_match && (
-          <TextInput
-            placeholder="search"
-            rightSection={<IconSearch size={ICON_SIZE} />}
-            ml="md"
-            style={{ width: tablet_match ? 'auto' : rem(400) }}
-          />
-        )}
+
       </Group>
       <Group>
-        {mobile_match && (
-          <ActionIcon>
-            <IconSearch size={ICON_SIZE} />
-          </ActionIcon>
-        )}
-        <LanguagePicker type="collapsed" />
-        <Menu shadow="lg" width={320}>
-          <Menu.Target>
-            <Indicator processing size={10} offset={6}>
-              <Tooltip label="Messages">
-                <ActionIcon size="lg" title="Nessages">
-                  <IconMessageCircle size={ICON_SIZE} />
-                </ActionIcon>
-              </Tooltip>
-            </Indicator>
-          </Menu.Target>
-          <Menu.Dropdown>
-            <Menu.Label tt="uppercase" ta="center" fw={600}>
-              {MESSAGES.length} new notifications
-            </Menu.Label>
-            {messages}
-            <Menu.Item tt="uppercase" ta="center" fw={600}>
-              Show all messages
-            </Menu.Item>
-          </Menu.Dropdown>
-        </Menu>
+
         <Menu shadow="lg" width={320}>
           <Menu.Target>
             <Indicator processing size={10} offset={6}>
@@ -334,11 +302,20 @@ const HeaderNav = (props: HeaderNavProps) => {
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>
-        <Tooltip label="Logout">
+        {mobile_match && (
           <ActionIcon>
-            <IconPower size={ICON_SIZE} />
+            <IconSearch size={ICON_SIZE} />
           </ActionIcon>
-        </Tooltip>
+        )}
+        {!mobile_match && (
+          <TextInput
+            radius="xl"
+            placeholder="search"
+            leftSection={<IconSearch size={ICON_SIZE} />}
+            style={{ width: tablet_match ? 'auto' : rem(150) }}
+          />
+        )}
+        <LanguagePicker type="collapsed" />
         <Menu shadow="lg" width={200}>
           <Menu.Target>
             <Tooltip label="Switch color modes">

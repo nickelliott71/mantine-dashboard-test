@@ -73,16 +73,4 @@
     }
 }
 
-.footer {
-    margin-left: calc(var(--mantine-spacing-md) * -1);
-    margin-right: calc(var(--mantine-spacing-md) * -1);
-    border-top: rem(1px) solid var(--mantine-primary-color-filled-hover);
-
-    @mixin light {
-        color: var(--mantine-color-white);
-    }
-
-    @mixin dark {
-        color: var(--mantine-color-black);
-    }
-}
+.footer {}

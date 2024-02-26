@@ -1,0 +1,24 @@
+.value {
+  font-size: rem(32px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.measure {
+  color: var(--mantine-color-dimmed);  
+  font-size: var(--mantine-font-size-xs);
+}
+
+.diff {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.titlebutton {
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0;
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-xs);
+}

@@ -1,6 +1,8 @@
 'use client';
 
 import {
+  Anchor,
+  Breadcrumbs,
   Button,
   Container,
   Grid,
@@ -14,10 +16,11 @@ import { IconChevronRight } from '@tabler/icons-react';
 import {
   MobileDesktopChart,
   PageHeader,
+  PerformanceGrid,
+  AlarmsGrid,
   ProjectsTable,
   RevenueChart,
   SalesChart,
-  StatsGrid,
 } from '@/components';
 import Link from 'next/link';
 import { PATH_TASKS } from '@/routes';
@@ -30,6 +33,16 @@ const PAPER_PROPS: PaperProps = {
   style: { height: '100%' },
 };
 
+const breadcrumbItems = [
+  { title: 'Organisations', href: '#' },
+  { title: 'ACME UK', href: '#' },
+  { title: 'Site overview', href: '#' },
+].map((item, index) => (
+  <Anchor href={item.href} fz="sm" key={index}>
+    {item.title}
+  </Anchor>
+));
+
 function Page() {
   const {
     data: projectsData,
@@ -37,15 +50,20 @@ function Page() {
     loading: projectsLoading,
   } = useFetchData('/mocks/Projects.json');
   const {
-    data: statsData,
-    error: statsError,
-    loading: statsLoading,
-  } = useFetchData('/mocks/StatsGrid.json');
+    data: alarmData,
+    error: alarmError,
+    loading: alarmLoading,
+  } = useFetchData('/mocks/AlarmsGrid.json');
+  const {
+    data: performanceData,
+    error: performanceError,
+    loading: performanceLoading,
+  } = useFetchData('/mocks/PerformanceGrid.json');
 
   return (
     <>
       <>
-        <title>Default Dashboard | DesignSparx</title>
+        <title>Default Dashboard</title>
         <meta
           name="description"
           content="Explore our versatile dashboard website template featuring a stunning array of themes and meticulously crafted components. Elevate your web project with seamless integration, customizable themes, and a rich variety of components for a dynamic user experience. Effortlessly bring your data to life with our intuitive dashboard template, designed to streamline development and captivate users. Discover endless possibilities in design and functionality today!"
@@ -53,46 +71,20 @@ function Page() {
       </>
       <Container fluid>
         <Stack gap="lg">
-          <PageHeader title="Default dashboard" withActions={true} />
-          <StatsGrid
-            data={statsData.data}
-            loading={statsLoading}
-            error={statsError}
+          <Breadcrumbs children={breadcrumbItems}></Breadcrumbs>
+          <PageHeader title="Welcome back, Raj!" withActions={true} />
+          <PerformanceGrid
+            data={performanceData.data}
+            loading={performanceLoading}
+            error={performanceError}
             paperProps={PAPER_PROPS}
           />
-          <Grid gutter={{ base: 5, xs: 'md', md: 'xl', xl: 50 }}>
-            <Grid.Col span={8}>
-              <RevenueChart {...PAPER_PROPS} />
-            </Grid.Col>
-            <Grid.Col span={4}>
-              <SalesChart {...PAPER_PROPS} />
-            </Grid.Col>
-            <Grid.Col span={4}>
-              <MobileDesktopChart {...PAPER_PROPS} />
-            </Grid.Col>
-            <Grid.Col span={8}>
-              <Paper {...PAPER_PROPS}>
-                <Group justify="space-between" mb="md">
-                  <Text size="lg" fw={600}>
-                    Tasks
-                  </Text>
-                  <Button
-                    variant="subtle"
-                    component={Link}
-                    href={PATH_TASKS.root}
-                    rightSection={<IconChevronRight size={18} />}
-                  >
-                    View all
-                  </Button>
-                </Group>
-                <ProjectsTable
-                  data={projectsData.slice(0, 6)}
-                  error={projectsError}
-                  loading={projectsLoading}
-                />
-              </Paper>
-            </Grid.Col>
-          </Grid>
+          <AlarmsGrid
+            data={alarmData.data}
+            loading={alarmLoading}
+            error={alarmError}
+            paperProps={PAPER_PROPS}
+          />
         </Stack>
       </Container>
     </>

@@ -34,6 +34,11 @@ import TextEditor from '@/components/TextEditor';
 import UserButton from '@/components/UserButton';
 import ErrorAlert from '@/components/ErrorAlert';
 
+
+import PerformanceCard from '@/components/PerformanceCard/PerformanceCard';
+import PerformanceGrid from '@/components/PerformanceGrid/PerformanceGrid';
+import AlarmsGrid from '@/components/AlarmsGrid/AlarmsGrid';
+
 export {
   Logo,
   ToggleTheme,
@@ -70,4 +75,7 @@ export {
   TextEditor,
   UserButton,
   ErrorAlert,
+  PerformanceCard,
+  PerformanceGrid,
+  AlarmsGrid,
 };

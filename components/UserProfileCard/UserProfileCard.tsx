@@ -1,6 +1,20 @@
-import { Avatar, Button, Paper, PaperProps, Stack, Text } from '@mantine/core';
+import { 
+  ActionIcon,
+  Avatar, 
+  Button, 
+  Group,
+  Paper, 
+  PaperProps, 
+  Stack, 
+  Text 
+} from '@mantine/core';
 import { Surface } from '@/components';
-import { IconSend } from '@tabler/icons-react';
+import classes from './UserProfileCard.module.css';
+import { 
+  IconDeviceMobile, 
+  IconMail, 
+  IconMessage 
+} from '@tabler/icons-react';
 
 type UserInfoActionProps = {
   data: {
@@ -16,31 +30,30 @@ const UserProfileCard = ({
   ...others
 }: UserInfoActionProps) => {
   return (
-    <Surface component={Paper} {...others}>
-      <Stack gap={4} align="center">
-        <Text size="lg" fw={600} mb="md">
-          Profile details
-        </Text>
-        <Avatar src={avatar} size={120} radius={120} mx="auto" mb="md" />
-        <Text fz="md" fw={500} mt="md" mx="auto">
-          {name}
-        </Text>
-        <Text c="dimmed" fz="xs" component="a" href={`mailto:${email}`}>
-          {email}
-        </Text>
-        <Text c="dimmed" fz="xs" ta="center">
-          {job}
-        </Text>
+    <Surface className={classes.profile} my="xs" p="md" component={Paper} {...others}>
+      <Group pb="xs">
+        <Avatar src={avatar} radius="xl" size="lg" />
+        <div>
+          <Text size="md" fw={500}>
+            {name}
+          </Text>
+          <Text size="sm">{job}</Text>
+        </div>
+        </Group>
+        <Group mx="xl" justify="space-between">
+          <ActionIcon variant="outline" size="lg" radius="xl" aria-label="Mobile">
+            <IconDeviceMobile style={{ width: '70%', height: '70%' }} stroke={1.5} />
+          </ActionIcon>
+          <ActionIcon variant="outline" size="lg" radius="xl" aria-label="Mail">
+            <IconMail style={{ width: '70%', height: '70%' }} stroke={1.5} />
+          </ActionIcon>
+          <ActionIcon variant="outline" size="lg" radius="xl" aria-label="Message">
+            <IconMessage style={{ width: '70%', height: '70%' }} stroke={1.5} />
+          </ActionIcon>                    
+        </Group>
 
-        <Button
-          variant="outline"
-          fullWidth
-          mt="md"
-          rightSection={<IconSend size={14} />}
-        >
-          Send message
-        </Button>
-      </Stack>
+
+
     </Surface>
   );
 };
