@@ -22,3 +22,11 @@
   color: var(--mantine-color-dimmed);
   font-size: var(--mantine-font-size-xs);
 }
+
+.charttext {
+  width: 110px;
+}
+
+.chartspark {
+  flex-grow: 1;
+}

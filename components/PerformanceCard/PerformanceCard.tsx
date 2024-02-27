@@ -44,8 +44,8 @@ const PerformanceCard = ({ data, ...others }: PerformanceCardProps) => {
         </Menu.Dropdown>
       </Menu>
 
-      <Group align="flex-end" gap="xs">
-        <Stack>
+      <Group className={classes.chartgroup} align="flex-start" justify='flex-start' wrap="nowrap" gap="xs">
+        <Stack className={classes.charttext}>
           <Group gap="xs" align="baseline">
             <Text span className={classes.value}>{value}</Text>
             <Text span className={classes.measure}>{measure}</Text>
@@ -66,16 +66,19 @@ const PerformanceCard = ({ data, ...others }: PerformanceCardProps) => {
         </Stack>
 
 
-        <Sparkline
-          w={85}
-          h={75}
-          data={[10, 20, 40, 20, 40, 10, 50]}
-          curveType="natural"
-          color={diff > 0 ? 'lime' : 'red'}
-          fillOpacity={0.6}
-          strokeWidth={2}
-        />
+        <div className={classes.chartspark}>
+          <Sparkline
+            w="100%"
+            h={75}
+            data={[10, 20, 40, 20, 40, 10, 50]}
+            curveType="natural"
+            color={diff > 0 ? 'lime' : 'red'}
+            fillOpacity={0.6}
+            strokeWidth={2}
+          />
+        </div>
       </Group>
+
       
     </div>
   );
