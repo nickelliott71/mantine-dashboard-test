@@ -1,28 +1,15 @@
 'use client';
 
 import {
-  Badge,
   Box,
-  BoxProps,
-  Button,
-  Center,
-  Container,
   ContainerProps,
-  Flex,
   Grid,
   Group,
   Image,
-  Paper,
-  PaperProps,
   rem,
-  SimpleGrid,
-  Spoiler,
   Stack,
   Text,
-  ThemeIcon,
-  ThemeIconProps,
   Title,
-  Tooltip,
   UnstyledButton,
   useMantineColorScheme,
   useMantineTheme,
@@ -59,7 +46,8 @@ import { createElement } from 'react';
 
 const EXAMPLES = [
   { title: 'Dashboard', href: PATH_DASHBOARD.default },
-  { title: 'Example 2', href: PATH_DASHBOARD.default },
+  { title: 'Dashboard 2', href: PATH_DASHBOARD.analytics },
+  { title: 'Dashboard 3', href: PATH_DASHBOARD.saas },
 ];
 
 export default function Home() {

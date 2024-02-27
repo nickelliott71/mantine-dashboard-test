@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import PerformanceCard from './PerformanceCard';
 
 export default {
-  title: 'Components/PerformanceCard',
+  title: 'SxS-Components/PerformanceCard',
   component: PerformanceCard,
   argTypes: {
     data: {
@@ -14,7 +14,11 @@ export default {
   },
 } as Meta<typeof PerformanceCard>;
 
-const StoryTemplate: StoryFn<typeof PerformanceCard> = (args) => <PerformanceCard {...args} />;
+const StoryTemplate: StoryFn<typeof PerformanceCard> = (args) => (
+  <div style={{ width: '300px' }}>
+    <PerformanceCard {...args} />
+  </div>
+);
 
 export const Default = StoryTemplate.bind({});
 Default.args = {
