@@ -47,8 +47,8 @@ const PerformanceCard = ({ data, ...others }: PerformanceCardProps) => {
       <Group align="flex-end" gap="xs">
         <Stack>
           <Group gap="xs" align="baseline">
-            <Text className={classes.value}>{value}</Text>
-            <Text className={classes.measure}>{measure}</Text>
+            <Text span className={classes.value}>{value}</Text>
+            <Text span className={classes.measure}>{measure}</Text>
           </Group>
           <Group gap={0}>
             <Text span

@@ -1,15 +1,21 @@
 import { 
   ActionIcon, 
-  Badge, 
   Group, 
   Paper, 
   PaperProps, 
   Title
 } from '@mantine/core';
-import { DonutChart, PieChart } from '@mantine/charts';
 import classes from './AlarmCard.module.css';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { Surface } from '@/components';
+import { donutdata } from './AlarmCardData';
+
+import dynamic from 'next/dynamic';
+
+// Import DonutChart with SSR disabled
+const DonutChartNoSSR = dynamic(() => import('@mantine/charts').then((mod) => mod.DonutChart), {
+  ssr: false,
+});
 
 type ChartDataItem = {
   name: string;
@@ -18,13 +24,13 @@ type ChartDataItem = {
 };
 
 type AlarmCardProps = {
-  data: { title: string; chartData: ChartDataItem[]; };
+  data: { title: string; };
 } & PaperProps;
 
 
 
 const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
-  const { title, chartData } = data;
+  const { title } = data;
 
   const dummydata = [
     { name: 'USA', value: 400, color: 'indigo.6' },
@@ -43,20 +49,9 @@ const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
           <IconDotsVertical size={16} />
       </ActionIcon>
       </Group>
-      <DonutChart
-        data={[
-          { name: 'USA', value: 400, color: 'blue' },
-          { name: 'Other', value: 200, color: 'gray.6' },
-        ]}
-    />
-    
-      <DonutChart data={dummydata} />
-      <DonutChart data={chartData} />
 
-      <PieChart data={[
-          { name: 'USA', value: 400, color: 'blue' },
-          { name: 'Other', value: 200, color: 'gray.6' },
-        ]} />
+
+      <DonutChartNoSSR data={donutdata} />
 
     </Surface>
 

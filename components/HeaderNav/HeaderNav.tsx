@@ -150,7 +150,7 @@ const HeaderNav = (props: HeaderNavProps) => {
   } = props;
   const theme = useMantineTheme();
   const { setColorScheme, colorScheme } = useMantineColorScheme();
-  const laptop_match = useMediaQuery('(max-width: 992px)');
+  const laptop_match = useMediaQuery('(max-width: 1024px)');
   const tablet_match = useMediaQuery('(max-width: 768px)');
   const mobile_match = useMediaQuery('(max-width: 425px)');
 
@@ -175,10 +175,10 @@ const HeaderNav = (props: HeaderNavProps) => {
           {Array.from(m.last_name)[0]}
         </Avatar>
         <Stack gap={1}>
-          <Text fz="sm" fw={600}>
+          <Text span fz="sm" fw={600}>
             {m.first_name} {m.last_name}
           </Text>
-          <Text lineClamp={2} fz="xs" c="dimmed">
+          <Text span lineClamp={2} fz="xs" c="dimmed">
             {m.message}
           </Text>
         </Stack>
@@ -198,10 +198,10 @@ const HeaderNav = (props: HeaderNavProps) => {
       <Flex gap="sm" align="center">
         <Avatar src={n.icon} alt={n.title} variant="filled" size="sm" />
         <Stack gap={1}>
-          <Text fz="sm" fw={600}>
+          <Text span fz="sm" fw={600}>
             {n.title}
           </Text>
-          <Text lineClamp={2} fz="xs" c="dimmed">
+          <Text span lineClamp={2} fz="xs" c="dimmed">
             {n.message}
           </Text>
         </Stack>
@@ -286,12 +286,12 @@ const HeaderNav = (props: HeaderNavProps) => {
         <Menu shadow="lg" width={200}>
           <Menu.Target>
             <div>
-              {mobile_match && (
+              {laptop_match && (
                 <ActionIcon>
                   <IconMapPin size={ICON_SIZE} />
                 </ActionIcon>
               )}
-              {!mobile_match && (
+              {!laptop_match && (
                 <Button leftSection={<IconMapPin size={ICON_SIZE} />} rightSection={<IconChevronDown size={14} />} variant="transparent">
                   Site: ACME UK
                 </Button>
@@ -316,7 +316,7 @@ const HeaderNav = (props: HeaderNavProps) => {
         <Menu shadow="lg" width={320}>
           <Menu.Target>
           <div>
-              {mobile_match && (
+              {laptop_match && (
                 <Indicator processing size={10} offset={6}>
                   <Tooltip label="Messages">
                     <ActionIcon size="lg" title="Nessages">
@@ -325,7 +325,7 @@ const HeaderNav = (props: HeaderNavProps) => {
                   </Tooltip>
                 </Indicator>
               )}
-              {!mobile_match && (
+              {!laptop_match && (
                 <Indicator processing size={10} offset={6}>
                   <Button leftSection={<IconClock size={ICON_SIZE} />} rightSection={<IconChevronDown size={14} />} variant="transparent">
                       Activity
@@ -336,7 +336,7 @@ const HeaderNav = (props: HeaderNavProps) => {
           </Menu.Target>
           <Menu.Dropdown>
             <Menu.Label tt="uppercase" ta="center" fw={600}>
-              {MESSAGES.length} new notifications
+              {MESSAGES.length} new messages
             </Menu.Label>
             {messages}
             <Menu.Item tt="uppercase" ta="center" fw={600}>

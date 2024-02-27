@@ -14,16 +14,9 @@ type LogoProps = {
 
 const Logo = ({ href, ...others }: LogoProps) => {
   return (
-    <UnstyledButton
-      className={classes.logo}
-      component={Link}
-      href={href || '/'}
-      {...others}
-    >
       <Group gap="xs">
-        <Text fw={500}>Acme admin</Text>
+        <Text span fw={500}>Acme admin</Text>
       </Group>
-    </UnstyledButton>
   );
 };
 
