@@ -4,6 +4,7 @@ import {
   ActionIcon,
   Avatar,
   Burger,
+  Button,
   Flex,
   Group,
   Indicator,
@@ -19,12 +20,13 @@ import {
 } from '@mantine/core';
 import {
   IconBell,
+  IconChevronDown,
   IconCircleHalf2,
+  IconClock,
   IconLayoutSidebarLeftCollapse,
   IconLayoutSidebarLeftExpand,
-  IconMessageCircle,
+  IconMapPin,
   IconMoonStars,
-  IconPower,
   IconSearch,
   IconSunHigh,
 } from '@tabler/icons-react';
@@ -281,27 +283,67 @@ const HeaderNav = (props: HeaderNavProps) => {
 
       </Group>
       <Group>
-
-        <Menu shadow="lg" width={320}>
+        <Menu shadow="lg" width={200}>
           <Menu.Target>
-            <Indicator processing size={10} offset={6}>
-              <Tooltip label="Notifications">
-                <ActionIcon size="lg" title="Notifications">
-                  <IconBell size={ICON_SIZE} />
+            <div>
+              {mobile_match && (
+                <ActionIcon>
+                  <IconMapPin size={ICON_SIZE} />
                 </ActionIcon>
-              </Tooltip>
-            </Indicator>
+              )}
+              {!mobile_match && (
+                <Button leftSection={<IconMapPin size={ICON_SIZE} />} rightSection={<IconChevronDown size={14} />} variant="transparent">
+                  Site: ACME UK
+                </Button>
+              )}
+            </div>
           </Menu.Target>
           <Menu.Dropdown>
-            <Menu.Label tt="uppercase" ta="center" fw={600}>
-              {NOTIFICATIONS.length} new notifications
+            <Menu.Label tt="uppercase" fw={600}>
+              Switch sites
             </Menu.Label>
-            {notifications}
-            <Menu.Item tt="uppercase" ta="center" fw={600}>
-              Show all notifications
+            <Menu.Item>
+              Site 1
+            </Menu.Item>
+            <Menu.Item>
+              Site 2
+            </Menu.Item>
+            <Menu.Item>
+              Site 3
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>
+        <Menu shadow="lg" width={320}>
+          <Menu.Target>
+          <div>
+              {mobile_match && (
+                <Indicator processing size={10} offset={6}>
+                  <Tooltip label="Messages">
+                    <ActionIcon size="lg" title="Nessages">
+                      <IconClock size={ICON_SIZE} />
+                    </ActionIcon>
+                  </Tooltip>
+                </Indicator>
+              )}
+              {!mobile_match && (
+                <Indicator processing size={10} offset={6}>
+                  <Button leftSection={<IconClock size={ICON_SIZE} />} rightSection={<IconChevronDown size={14} />} variant="transparent">
+                      Activity
+                  </Button>
+                </Indicator>
+              )}
+            </div>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Label tt="uppercase" ta="center" fw={600}>
+              {MESSAGES.length} new notifications
+            </Menu.Label>
+            {messages}
+            <Menu.Item tt="uppercase" ta="center" fw={600}>
+              Show all messages
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>        
         {mobile_match && (
           <ActionIcon>
             <IconSearch size={ICON_SIZE} />
@@ -351,6 +393,26 @@ const HeaderNav = (props: HeaderNavProps) => {
               onClick={() => setColorScheme('auto')}
             >
               Use System Colors
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+        <Menu shadow="lg" width={320}>
+          <Menu.Target>
+            <Indicator processing size={10} offset={6}>
+              <Tooltip label="Notifications">
+                <ActionIcon size="lg" title="Notifications">
+                  <IconBell size={ICON_SIZE} />
+                </ActionIcon>
+              </Tooltip>
+            </Indicator>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Label tt="uppercase" ta="center" fw={600}>
+              {NOTIFICATIONS.length} new notifications
+            </Menu.Label>
+            {notifications}
+            <Menu.Item tt="uppercase" ta="center" fw={600}>
+              Show all notifications
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>
