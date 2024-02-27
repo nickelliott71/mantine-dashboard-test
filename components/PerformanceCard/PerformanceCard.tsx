@@ -44,8 +44,8 @@ const PerformanceCard = ({ data, ...others }: PerformanceCardProps) => {
         </Menu.Dropdown>
       </Menu>
 
-      <Group className={classes.chartgroup} align="flex-start" justify='flex-start' wrap="nowrap" gap="xs">
-        <Stack className={classes.charttext}>
+      <Group align="flex-start" justify='flex-start' wrap="nowrap" gap="xs">
+        <Stack gap="xs" justify="flex-end"className={classes.charttext}>
           <Group gap="xs" align="baseline">
             <Text span className={classes.value}>{value}</Text>
             <Text span className={classes.measure}>{measure}</Text>
