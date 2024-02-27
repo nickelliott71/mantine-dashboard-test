@@ -1,7 +1,7 @@
 
 .profile {
     @mixin light {
-        background-color: var(--mantine-color-brand-2);
+        background-color: var(--mantine-color-gray-1);
     }
 
     @mixin dark {

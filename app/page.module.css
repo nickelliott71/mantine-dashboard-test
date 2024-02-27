@@ -2,6 +2,7 @@
   background-color: var(--mantine-color-black);
   color: var(--mantine-color-white);
   padding: calc(var(--mantine-spacing-xl) * 4);
+  padding-bottom: calc(var(--mantine-spacing-xl) * 2);
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding-top: var(--mantine-spacing-xl);
@@ -21,7 +22,7 @@
 }
 
 .highlight {
-  color: var(--mantine-primary-color-filled);
+  color: var(--mantine-color-brand-2);
 }
 
 .stackControl {

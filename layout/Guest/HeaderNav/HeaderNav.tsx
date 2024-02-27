@@ -18,18 +18,6 @@ import { IconBrandGithub, IconPlayerPlay } from '@tabler/icons-react';
 
 const MOCK_DATA = [
   {
-    link: 'https://652579e5b7998a00083d022b--mantine-analytics-dashboard.netlify.app/',
-    label: 'Version 1',
-  },
-  {
-    link: 'https://6564d1b09deea091e3ec0769-jsxuvbmjcr.chromatic.com/?path=/docs/welcome--docs',
-    label: 'components',
-  },
-  {
-    link: 'mailto:kelvin.kiprop96@gmail.com',
-    label: 'support',
-  },
-  {
     link: PATH_DOCS.root,
     label: 'documentation',
   },
@@ -63,24 +51,6 @@ const HeaderNav = () => {
           <Logo style={{ color: theme.white }} />
           <Group gap="xs" className={classes.links}>
             {items}
-            <Button
-              component="a"
-              target="_blank"
-              href={PATH_GITHUB.repo}
-              variant="transparent"
-              c="white"
-              leftSection={<IconBrandGithub size={16} />}
-              className={classes.link}
-            >
-              Give us a star
-            </Button>
-            <Button
-              component={Link}
-              href={PATH_DASHBOARD.default}
-              leftSection={<IconPlayerPlay size={16} />}
-            >
-              Live Preview
-            </Button>
           </Group>
           <Burger
             opened={drawerOpened}
@@ -104,20 +74,6 @@ const HeaderNav = () => {
       >
         <ScrollArea h={`calc(100vh - ${rem(60)})`} mx="-md">
           {items}
-          <Button
-            component="a"
-            target="_blank"
-            href={PATH_GITHUB.repo}
-            variant="transparent"
-            c="white"
-            leftSection={<IconBrandGithub size={16} />}
-            className={classes.link}
-          >
-            Give us a star
-          </Button>
-          <Button component={Link} href={PATH_DASHBOARD.default}>
-            Live Previews
-          </Button>
         </ScrollArea>
       </Drawer>
     </Box>

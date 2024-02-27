@@ -1,7 +1,6 @@
 import { 
   Button, 
   Group, 
-  GroupProps,
   Menu,
   Stack,
   Text 
