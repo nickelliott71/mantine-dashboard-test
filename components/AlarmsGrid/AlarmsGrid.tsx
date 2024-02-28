@@ -23,10 +23,6 @@ export default function AlarmsGrid({
   error,
   paperProps,
 }: StatsGridProps) {
-  const stats = data?.map((stat) => (
-    <AlarmCard key={stat.title} data={stat} {...paperProps} />
-  ));
-
   return (
     <div className={classes.root}>
       {error ? (
@@ -38,14 +34,16 @@ export default function AlarmsGrid({
           verticalSpacing={{ base: 'md', sm: 'xl' }}
         >
           {loading
-            ? Array.from({ length: 4 }).map((o, i) => (
+            ? Array.from({ length: data?.length || 3 }).map((o, i) => (
                 <Skeleton
                   key={`stats-loading-${i}`}
                   visible={true}
                   height={200}
                 />
               ))
-            : stats}
+            : data?.map((stat) => (
+              <AlarmCard key={stat.title} data={stat} {...paperProps} />
+            ))}
         </SimpleGrid>
       )}
     </div>
