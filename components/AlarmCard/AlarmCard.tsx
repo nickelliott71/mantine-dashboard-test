@@ -5,17 +5,10 @@ import {
   PaperProps, 
   Title
 } from '@mantine/core';
+import { DonutChart } from '@mantine/charts';
 import classes from './AlarmCard.module.css';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { Surface } from '@/components';
-import { donutdata } from './AlarmCardData';
-
-import dynamic from 'next/dynamic';
-
-// Import DonutChart with SSR disabled
-const DonutChartNoSSR = dynamic(() => import('@mantine/charts').then((mod) => mod.DonutChart), {
-  ssr: false,
-});
 
 type ChartDataItem = {
   name: string;
@@ -24,20 +17,12 @@ type ChartDataItem = {
 };
 
 type AlarmCardProps = {
-  data: { title: string; };
+  data: { title: string; chartData: ChartDataItem[]; };
 } & PaperProps;
 
 
-
 const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
-  const { title } = data;
-
-  const dummydata = [
-    { name: 'USA', value: 400, color: 'indigo.6' },
-    { name: 'India', value: 300, color: 'yellow.6' },
-    { name: 'Japan', value: 100, color: 'teal.6' },
-    { name: 'Other', value: 200, color: 'gray.6' },
-  ];
+  const { title, chartData } = data;
   
   return (
     <Surface component={Paper} {...others}>
@@ -50,11 +35,14 @@ const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
       </ActionIcon>
       </Group>
 
-
-      <DonutChartNoSSR data={donutdata} />
-
+      <DonutChart
+        style={{
+          // chart needs a set height for it to render
+          height: '300px',
+        }}
+        data={chartData}
+      />
     </Surface>
-
   );
 };
 
