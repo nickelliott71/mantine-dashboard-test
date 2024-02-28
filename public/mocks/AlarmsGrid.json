@@ -11,17 +11,17 @@
     {
       "title": "assets with alarms",
       "chartData": [
-        { "name": "USA", "value": 400, "color": "indigo.6" },
-        { "name": "India", "value": 300, "color": "yellow.6" },
-        { "name": "Japan", "value": 100, "color": "teal.6" }
+        { "name": "USA", "value": 200, "color": "indigo.6" },
+        { "name": "India", "value": 350, "color": "yellow.6" },
+        { "name": "Japan", "value": 10, "color": "teal.6" }
       ]
     },
     {
       "title": "Connected assets",
       "chartData": [
-        { "name": "USA", "value": 400, "color": "indigo.6" },
-        { "name": "India", "value": 300, "color": "yellow.6" },
-        { "name": "Japan", "value": 100, "color": "teal.6" }
+        { "name": "USA", "value": 600, "color": "indigo.6" },
+        { "name": "India", "value": 100, "color": "yellow.6" },
+        { "name": "Japan", "value": 700, "color": "teal.6" }
       ]
     }
   ]
