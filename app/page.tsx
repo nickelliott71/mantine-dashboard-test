@@ -93,8 +93,9 @@ export default function Home() {
                 <Stack>
                   <Text fw={700}>Examples:</Text>
                   <Group pb="sm">
-                    {EXAMPLES.map((t) => (
+                    {EXAMPLES.map((t, index) => (
                       <UnstyledButton
+                        key={`home-item--${index}`}
                         className={classes.stackControl}
                         component="a"
                         href={t.href}
