@@ -1,7 +1,9 @@
 {
   "name": "mantine-analytics-dashboard",
   "description": "A free, open source, Next 14, React 18 admin dashboard template created using Mantine 7",
-  "bugs": "https://github.com/design-sparx/mantine-analytics-dashboard/issues",
+  "bugs": {
+    "url": "https://github.com/design-sparx/mantine-analytics-dashboard/issues"
+  },
   "version": "2.1.5",
   "scripts": {
     "dev": "next dev",
@@ -15,7 +17,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prettier": "prettier . --write",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "chromatic": "npx chromatic --project-token=chpt_fa5c2be212bbf78"
   },
   "dependencies": {
     "@changesets/cli": "2.26.2",
@@ -108,5 +111,7 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "mantine-analytics-dashboard@2.1.5"
 }

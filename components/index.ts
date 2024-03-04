@@ -38,6 +38,7 @@ import ErrorAlert from '@/components/ErrorAlert';
 import PerformanceCard from '@/components/PerformanceCard/PerformanceCard';
 import PerformanceGrid from '@/components/PerformanceGrid/PerformanceGrid';
 import AlarmsGrid from '@/components/AlarmsGrid/AlarmsGrid';
+import SideStrip from '@/components/SideStrip/SideStrip';
 
 export {
   Logo,
@@ -78,4 +79,5 @@ export {
   PerformanceCard,
   PerformanceGrid,
   AlarmsGrid,
+  SideStrip,
 };
