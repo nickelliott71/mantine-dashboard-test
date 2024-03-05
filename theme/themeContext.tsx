@@ -4,9 +4,20 @@ import { MantineProvider } from '@mantine/core';
 import { MantineThemeOverride } from '@mantine/core';
 import { ThemeA, ThemeB, ThemeC, ThemeD  } from '@/theme'; 
 
+
+// Extend the Mantine theme with a brandAssets field
+interface ExtendedTheme extends MantineThemeOverride {
+  brandAssets: {
+    name: string; // Name of brand
+    logo: string; // Path to the theme-specific logo
+    logoWidth: number;
+    logoHeight: number;
+  };
+}
+
 interface ThemeContextType {
-  theme: MantineThemeOverride;
-  switchTheme: (brand: string) => void;
+  theme: ExtendedTheme;
+  switchTheme: (themeName: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -16,24 +27,54 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<MantineThemeOverride>(ThemeA);
+  const [theme, setTheme] = useState<ExtendedTheme>({ ...ThemeA, brandAssets: { 
+    name: 'Spirax Group', 
+    logo: '/themes/themeA/spirax_group_logo.png',
+    logoWidth: 65.38,
+    logoHeight: 25  
+  } });
 
-  const switchTheme = (brand: string): void => {
-    switch (brand) {
+  const switchTheme = (themeName: string): void => {
+    switch (themeName) {
       case 'ThemeA':
-        setTheme(ThemeA);
-        break;
+        setTheme({ ...ThemeA, brandAssets: { 
+          name: 'Spirax Group', 
+          logo: '/themes/themeA/spirax_group_logo.png',
+          logoWidth: 65.38,
+          logoHeight: 25      
+        } });
+        break;      
       case 'ThemeB':
-        setTheme(ThemeB);
+        setTheme({ ...ThemeB, brandAssets: { 
+          name: 'Spirax Sarco', 
+          logo: '/themes/themeB/spirax_sarco_logo.svg', 
+          logoWidth: 85.5,
+          logoHeight: 25          
+        } });
         break;
       case 'ThemeC':
-        setTheme(ThemeC);
+        setTheme({ ...ThemeC, brandAssets: { 
+          name: 'Watson Marlow', 
+          logo: '/themes/themeC/wm_logo.svg',
+          logoWidth: 77.25,
+          logoHeight: 25   
+         } });
         break;
       case 'ThemeD':
-        setTheme(ThemeD);
+        setTheme({ ...ThemeD, brandAssets: { 
+          name: 'Chromalox', 
+          logo: '/themes/themeD/chromalox_logo.svg',
+          logoWidth: 100.51,
+          logoHeight: 25   
+         } });
         break;
       default:
-        setTheme(ThemeA); // Default case
+        setTheme({ ...ThemeA, brandAssets: { 
+          name: 'SxS Corporate', 
+          logo: '/themes/themeA/spirax_group_logo.svg',
+          logoWidth: 65.38,
+          logoHeight: 25    
+        } }); // Default to ThemeA
     }
   };
 

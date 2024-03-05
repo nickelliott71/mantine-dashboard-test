@@ -1,6 +1,5 @@
 import classes from './Logo.module.css';
 import {
-  Center,
   Group,
   Text,
   UnstyledButton,
@@ -8,13 +7,14 @@ import {
 } from '@mantine/core';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTheme } from '@/theme/themeContext';
 
 type LogoProps = {
   href?: string;
-  hideText?: boolean; 
 } & UnstyledButtonProps;
 
-const Logo = ({ href, hideText, ...others }: LogoProps) => {
+const Logo = ({ href, ...others }: LogoProps) => {
+  const { theme } = useTheme();
   return (
 
     <UnstyledButton
@@ -26,12 +26,11 @@ const Logo = ({ href, hideText, ...others }: LogoProps) => {
 
       <Group justify="center" gap="xs">
         <Image
-          src="/logo-no-background.png"
-          height={24}
-          width={24}
-          alt="dummy logo"
+          src={theme.brandAssets.logo}
+          alt={theme.brandAssets.name}
+          width={theme.brandAssets.logoWidth}
+          height={theme.brandAssets.logoHeight}
         />
-        {!hideText && <Text span fw={500}>Acme admin</Text>}
       </Group>
     </UnstyledButton>
   );

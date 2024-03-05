@@ -31,7 +31,7 @@ import {
   IconSunHigh,
 } from '@tabler/icons-react';
 import { LanguagePicker } from '@/components';
-import { upperFirst, useMediaQuery } from '@mantine/hooks';
+import { useMediaQuery } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
 import { useTheme } from '@/theme/themeContext';
 
@@ -188,7 +188,7 @@ const HeaderNav = (props: HeaderNavProps) => {
     </Menu.Item>
   ));
 
-  const notifications = NOTIFICATIONS.slice(0, 3).map((n) => (
+  const notes = NOTIFICATIONS.slice(0, 3).map((n) => (
     <Menu.Item
       key={n.id}
       style={{
@@ -211,55 +211,11 @@ const HeaderNav = (props: HeaderNavProps) => {
     </Menu.Item>
   ));
 
-  const handleColorSwitch = (mode: 'light' | 'dark' | 'auto') => {
-    setColorScheme(mode);
+  const showThemeNotification = (title: string, message: string) => {
     showNotification({
-      title: `${upperFirst(mode)} is on`,
-      message: `You just switched to ${
-        colorScheme === 'dark' ? 'light' : 'dark'
-      } mode. Hope you like it`,
-      styles: (theme: MantineTheme) => ({
-        root: {
-          backgroundColor:
-            colorScheme === 'dark'
-              ? theme.colors.gray[7]
-              : theme.colors.gray[2],
-          borderColor:
-            colorScheme === 'dark'
-              ? theme.colors.gray[7]
-              : theme.colors.gray[2],
-
-          '&::before': {
-            backgroundColor:
-              colorScheme === 'dark'
-                ? theme.colors.gray[2]
-                : theme.colors.gray[7],
-          },
-        },
-
-        title: {
-          color:
-            colorScheme === 'dark'
-              ? theme.colors.gray[2]
-              : theme.colors.gray[7],
-        },
-        description: {
-          color:
-            colorScheme === 'dark'
-              ? theme.colors.gray[2]
-              : theme.colors.gray[7],
-        },
-        closeButton: {
-          color:
-            colorScheme === 'dark'
-              ? theme.colors.gray[2]
-              : theme.colors.gray[7],
-          '&:hover': {
-            backgroundColor: theme.colors.red[5],
-            color: theme.white,
-          },
-        },
-      }),
+      title: title,
+      message: message,
+      color: 'teal', // Example color, adjust as needed
     });
   };
 
@@ -385,7 +341,7 @@ const HeaderNav = (props: HeaderNavProps) => {
                 switchTheme('ThemeA'); 
               }}
             >
-              SxS Corporate Light
+              Spirax Group Light
             </Menu.Item>
             <Menu.Item
               leftSection={<IconMoonStars size={16} />}
@@ -394,7 +350,7 @@ const HeaderNav = (props: HeaderNavProps) => {
                 switchTheme('ThemeA'); 
               }}
             >
-              SxS Corporate Dark
+              Spirax Group Dark
             </Menu.Item>
             <Menu.Item
               leftSection={<IconSunHigh size={16} />}
@@ -403,7 +359,7 @@ const HeaderNav = (props: HeaderNavProps) => {
                 switchTheme('ThemeB'); 
               }}
             >
-              SxS Steam Light
+              Spirax Sarco Light
             </Menu.Item>
             <Menu.Item
               leftSection={<IconMoonStars size={16} />}
@@ -412,7 +368,7 @@ const HeaderNav = (props: HeaderNavProps) => {
                 switchTheme('ThemeB'); 
               }}
             >
-              SxS Steam Dark
+              Spirax Sarco Steam Dark
             </Menu.Item>
             <Menu.Item
               leftSection={<IconSunHigh size={16} />}
@@ -424,7 +380,7 @@ const HeaderNav = (props: HeaderNavProps) => {
               Watson Marlow Light
             </Menu.Item>
             <Menu.Item
-              leftSection={<IconSunHigh size={16} />}
+              leftSection={<IconMoonStars size={16} />}
               onClick={() => {
                 setColorScheme('dark');
                 switchTheme('ThemeC'); 
@@ -436,7 +392,7 @@ const HeaderNav = (props: HeaderNavProps) => {
               leftSection={<IconSunHigh size={16} />}
               onClick={() => {
                 setColorScheme('light');
-                switchTheme('ThemeD'); 
+                switchTheme('ThemeD');
               }}
             >
               Chromalox Light
@@ -472,7 +428,7 @@ const HeaderNav = (props: HeaderNavProps) => {
             <Menu.Label tt="uppercase" ta="center" fw={600}>
               {NOTIFICATIONS.length} new notifications
             </Menu.Label>
-            {notifications}
+            {notes}
             <Menu.Item tt="uppercase" ta="center" fw={600}>
               Show all notifications
             </Menu.Item>

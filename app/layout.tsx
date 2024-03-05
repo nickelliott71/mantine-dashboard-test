@@ -58,7 +58,7 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <Notifications position="bottom-right" zIndex={1000} />
+          <Notifications position="top-right" zIndex={10000} />
           <ModalsProvider>{children}</ModalsProvider>
         </ThemeProvider>
       </body>
