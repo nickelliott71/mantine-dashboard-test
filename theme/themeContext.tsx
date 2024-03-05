@@ -1,4 +1,6 @@
 // ThemeContext.tsx
+'use client';
+
 import React, { createContext, useContext, ReactNode, useState, FunctionComponent } from 'react';
 import { MantineProvider } from '@mantine/core';
 import { MantineThemeOverride } from '@mantine/core';
