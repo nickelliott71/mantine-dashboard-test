@@ -87,7 +87,7 @@ const SideStrip = ({ onClose, ...others }: SideStripProps) => {
     <nav className={classes.navbar}>
       <div className={classes.header}>
         <Flex justify="space-between" align="center" gap="sm">
-            <Logo className={classes.logo} hideText={true} />
+            <Logo className={classes.logo} />
           {tablet_match && (
             <ActionIcon onClick={onClose} variant="transparent">
               <IconX color="white" />
