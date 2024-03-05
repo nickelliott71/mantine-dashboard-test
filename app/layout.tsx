@@ -1,10 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
-import { Open_Sans } from 'next/font/google';
-import { myTheme } from '@/theme';
+import { ThemeProvider } from '@/theme/themeContext'; 
 import '@mantine/core/styles.css';
 import '@mantine/charts/styles.css';
 import '@mantine/dates/styles.css';
@@ -14,18 +14,13 @@ import '@mantine/notifications/styles.css';
 import 'mantine-datatable/styles.layer.css';
 import './globals.css';
 
-// If loading a variable font, you don't need to specify the font weight
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-});
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={openSans.className}>
+    <html lang="en">
       <head>
         <title>Spirax Mantine Example App</title>
         <link
@@ -62,10 +57,10 @@ export default function RootLayout({
         <ColorSchemeScript defaultColorScheme="auto" />
       </head>
       <body>
-        <MantineProvider theme={myTheme} defaultColorScheme="auto">
+        <ThemeProvider>
           <Notifications position="bottom-right" zIndex={1000} />
           <ModalsProvider>{children}</ModalsProvider>
-        </MantineProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -33,6 +33,7 @@ import {
 import { LanguagePicker } from '@/components';
 import { upperFirst, useMediaQuery } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
+import { useTheme } from '@/theme/themeContext';
 
 const ICON_SIZE = 20;
 
@@ -153,6 +154,7 @@ const HeaderNav = (props: HeaderNavProps) => {
   const laptop_match = useMediaQuery('(max-width: 1024px)');
   const tablet_match = useMediaQuery('(max-width: 768px)');
   const mobile_match = useMediaQuery('(max-width: 425px)');
+  const { switchTheme } = useTheme();
 
   const messages = MESSAGES.map((m) => (
     <Menu.Item
@@ -378,16 +380,76 @@ const HeaderNav = (props: HeaderNavProps) => {
             </Menu.Label>
             <Menu.Item
               leftSection={<IconSunHigh size={16} />}
-              onClick={() => setColorScheme('light')}
+              onClick={() => {
+                setColorScheme('light');
+                switchTheme('ThemeA'); 
+              }}
             >
-              Light
+              SxS Corporate Light
             </Menu.Item>
             <Menu.Item
               leftSection={<IconMoonStars size={16} />}
-              onClick={() => setColorScheme('dark')}
+              onClick={() => {
+                setColorScheme('dark');
+                switchTheme('ThemeA'); 
+              }}
             >
-              Dark
+              SxS Corporate Dark
             </Menu.Item>
+            <Menu.Item
+              leftSection={<IconSunHigh size={16} />}
+              onClick={() => {
+                setColorScheme('light');
+                switchTheme('ThemeB'); 
+              }}
+            >
+              SxS Steam Light
+            </Menu.Item>
+            <Menu.Item
+              leftSection={<IconMoonStars size={16} />}
+              onClick={() => {
+                setColorScheme('dark');
+                switchTheme('ThemeB'); 
+              }}
+            >
+              SxS Steam Dark
+            </Menu.Item>
+            <Menu.Item
+              leftSection={<IconSunHigh size={16} />}
+              onClick={() => {
+                setColorScheme('light');
+                switchTheme('ThemeC'); 
+              }}
+            >
+              Watson Marlow Light
+            </Menu.Item>
+            <Menu.Item
+              leftSection={<IconSunHigh size={16} />}
+              onClick={() => {
+                setColorScheme('dark');
+                switchTheme('ThemeC'); 
+              }}
+            >
+              Watson Marlow Dark
+            </Menu.Item>              
+            <Menu.Item
+              leftSection={<IconSunHigh size={16} />}
+              onClick={() => {
+                setColorScheme('light');
+                switchTheme('ThemeD'); 
+              }}
+            >
+              Chromalox Light
+            </Menu.Item>
+            <Menu.Item
+              leftSection={<IconMoonStars size={16} />}
+              onClick={() => {
+                setColorScheme('dark');
+                switchTheme('ThemeD'); 
+              }}
+            >
+              Chromalox Dark
+            </Menu.Item>                        
             <Menu.Item
               leftSection={<IconCircleHalf2 size={16} />}
               onClick={() => setColorScheme('auto')}
