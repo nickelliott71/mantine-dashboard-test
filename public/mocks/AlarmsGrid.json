@@ -2,7 +2,7 @@
   "data": [
     {
       "title": "Alarm condition",
-      "headline": "",
+      "headline": "19",
       "chartData": [
         { "name": "Urgent", "value": 14, "color": "var(--mantine-color-red-filled)" },
         { "name": "Advisory", "value": 2, "color": "var(--mantine-color-orange-filled)" },

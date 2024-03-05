@@ -13,7 +13,6 @@ import classes from './AlarmCard.module.css';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { Surface } from '@/components';
 import { DonutChart } from '@mantine/charts';
-import { Key } from 'react';
 
 type ChartDataItem = {
   name: string;
@@ -53,6 +52,8 @@ const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
           size={150} thickness={20}
           data={chartData}
           chartLabel={headline}
+          classNames={{ label: "chartLabel" }}
+          styles={{ label: { fontSize: "32px", lineHeight: "1", fontWeight: "500" } }}
         />
         <Box>
           {chartData.map((item: ChartDataItem) => (
