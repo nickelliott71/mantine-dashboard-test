@@ -9,6 +9,7 @@ import { DonutChart } from '@mantine/charts';
 import classes from './AlarmCard.module.css';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { Surface } from '@/components';
+import dynamic from 'next/dynamic';
 
 type ChartDataItem = {
   name: string;
@@ -19,6 +20,10 @@ type ChartDataItem = {
 type AlarmCardProps = {
   data: { title: string; chartData: ChartDataItem[]; };
 } & PaperProps;
+
+const DonutChartNoSSR = dynamic(() => import('@mantine/charts').then((mod) => mod.DonutChart), {
+  ssr: false,
+});
 
 
 const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
@@ -35,11 +40,12 @@ const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
       </ActionIcon>
       </Group>
 
-      <DonutChart
+      <DonutChartNoSSR
         style={{
           // chart needs a set height for it to render
-          height: '300px',
+          height: '200px',
         }}
+        size={200} thickness={30}
         data={chartData}
       />
     </Surface>
