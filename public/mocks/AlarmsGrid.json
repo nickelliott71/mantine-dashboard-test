@@ -2,26 +2,27 @@
   "data": [
     {
       "title": "Alarm condition",
+      "headline": "",
       "chartData": [
-        { "name": "USA", "value": 400, "color": "indigo.6" },
-        { "name": "India", "value": 300, "color": "yellow.6" },
-        { "name": "Japan", "value": 100, "color": "teal.6" }
+        { "name": "Urgent", "value": 14, "color": "var(--mantine-color-red-filled)" },
+        { "name": "Advisory", "value": 2, "color": "var(--mantine-color-orange-filled)" },
+        { "name": "Warning", "value": 3, "color": "var(--mantine-color-yellow-filled)" }
       ]
     },
     {
       "title": "assets with alarms",
+      "headline": "6%",
       "chartData": [
-        { "name": "USA", "value": 200, "color": "indigo.6" },
-        { "name": "India", "value": 350, "color": "yellow.6" },
-        { "name": "Japan", "value": 10, "color": "teal.6" }
+        { "name": "Active alarms", "value": 34, "color": "var(--mantine-color-lime-filled)" },
+        { "name": "No alarms", "value": 2, "color": "var(--mantine-color-orange-filled)" }
       ]
     },
     {
       "title": "Connected assets",
+      "headline": "94%",
       "chartData": [
-        { "name": "USA", "value": 600, "color": "indigo.6" },
-        { "name": "India", "value": 100, "color": "yellow.6" },
-        { "name": "Japan", "value": 700, "color": "teal.6" }
+        { "name": "Connected", "value": 47, "color": "var(--mantine-color-lime-filled)" },
+        { "name": "Unconnected", "value": 3, "color": "var(--mantine-color-red-filled)" }
       ]
     }
   ]

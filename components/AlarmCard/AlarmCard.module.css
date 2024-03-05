@@ -5,3 +5,9 @@
   color: var(--mantine-color-dimmed);
   font-size: var(--mantine-font-size-xs);
 }
+
+.value {
+  font-size: rem(32px);
+  font-weight: 500;
+  line-height: 1.15;
+}

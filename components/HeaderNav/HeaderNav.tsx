@@ -358,7 +358,7 @@ const HeaderNav = (props: HeaderNavProps) => {
           />
         )}
         <LanguagePicker type="collapsed" />
-        {/*<Menu shadow="lg" width={200}>
+        <Menu shadow="lg" width={200}>
           <Menu.Target>
             <Tooltip label="Switch color modes">
               <ActionIcon variant="light">
@@ -395,7 +395,7 @@ const HeaderNav = (props: HeaderNavProps) => {
               Use System Colors
             </Menu.Item>
           </Menu.Dropdown>
-                </Menu>*/}
+                </Menu>
         <Menu shadow="lg" width={320}>
           <Menu.Target>
             <Indicator processing size={10} offset={6}>

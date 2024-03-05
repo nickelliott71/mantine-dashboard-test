@@ -1,37 +1,39 @@
 import { 
   ActionIcon, 
+  Box,
+  Flex, 
   Group, 
   Paper, 
   PaperProps, 
+  Stack,
+  Text,
   Title
 } from '@mantine/core';
-import { DonutChart } from '@mantine/charts';
 import classes from './AlarmCard.module.css';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { Surface } from '@/components';
-import dynamic from 'next/dynamic';
+import { DonutChart } from '@mantine/charts';
+import { Key } from 'react';
 
 type ChartDataItem = {
   name: string;
   value: number;
   color: string;
+  headline?: string;
 };
 
 type AlarmCardProps = {
-  data: { title: string; chartData: ChartDataItem[]; };
+  data: {
+    [x: string]: any; title: string; chartData: ChartDataItem[]; 
+};
 } & PaperProps;
 
-const DonutChartNoSSR = dynamic(() => import('@mantine/charts').then((mod) => mod.DonutChart), {
-  ssr: false,
-});
-
-
 const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
-  const { title, chartData } = data;
+  const { title, headline, chartData } = data;
   
   return (
     <Surface component={Paper} {...others}>
-      <Group justify="space-between" mb="md">
+      <Group justify="space-between" mb="md" gap="lg">
         <Title order={3} className={classes.title}>
           {title}
         </Title>
@@ -40,14 +42,33 @@ const AlarmCard = ({ data, ...others }: AlarmCardProps) => {
       </ActionIcon>
       </Group>
 
-      <DonutChartNoSSR
-        style={{
-          // chart needs a set height for it to render
-          height: '200px',
-        }}
-        size={200} thickness={30}
-        data={chartData}
-      />
+      <Flex
+        gap="lg"
+        justify="center"
+        align="flex-start"
+        direction="row"
+        wrap="wrap"
+      >
+        <DonutChart
+          size={150} thickness={20}
+          data={chartData}
+          chartLabel={headline}
+        />
+        <Box>
+          {chartData.map((item: ChartDataItem) => (
+            <Group key={item.name} gap="xs" mb="xs">
+              <Stack gap={0}>
+                <Group gap="xs">
+                  <Paper bg={item.color} w={15} h={15} radius={4} />
+                  <Text span size="sm">{`${item.name}`}</Text>
+                </Group>
+                <Text  className={classes.value} span>{`${item.value}`}</Text>
+              </Stack>
+            </Group>
+          ))}
+        </Box>
+      </Flex>
+
     </Surface>
   );
 };
