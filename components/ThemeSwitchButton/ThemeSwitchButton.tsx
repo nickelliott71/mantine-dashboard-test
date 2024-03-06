@@ -44,7 +44,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconSunHigh size={16} />}
             onClick={() => {
-            switchTheme('ThemeA'); 
+                setColorScheme('light');
+                switchTheme('ThemeA'); 
             }}
         >
             Spirax Group Light
@@ -52,7 +53,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconMoonStars size={16} />}
             onClick={() => {
-            switchTheme('ThemeA'); 
+                setColorScheme('dark');
+                switchTheme('ThemeA'); 
             }}
         >
             Spirax Group Dark
@@ -60,8 +62,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconSunHigh size={16} />}
             onClick={() => {
-            setColorScheme('light');
-            switchTheme('ThemeB'); 
+                setColorScheme('light');
+                switchTheme('ThemeB'); 
             }}
         >
             Spirax Sarco Light
@@ -69,8 +71,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconMoonStars size={16} />}
             onClick={() => {
-            setColorScheme('dark');
-            switchTheme('ThemeB'); 
+                setColorScheme('dark');
+                switchTheme('ThemeB'); 
             }}
         >
             Spirax Sarco Steam Dark
@@ -78,8 +80,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconSunHigh size={16} />}
             onClick={() => {
-            setColorScheme('light');
-            switchTheme('ThemeC'); 
+                setColorScheme('light');
+                switchTheme('ThemeC'); 
             }}
         >
             Watson Marlow Light
@@ -87,8 +89,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconMoonStars size={16} />}
             onClick={() => {
-            setColorScheme('dark');
-            switchTheme('ThemeC'); 
+                setColorScheme('dark');
+                switchTheme('ThemeC'); 
             }}
         >
             Watson Marlow Dark
@@ -96,8 +98,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconSunHigh size={16} />}
             onClick={() => {
-            setColorScheme('light');
-            switchTheme('ThemeD');
+                setColorScheme('light');
+                switchTheme('ThemeD');
             }}
         >
             Chromalox Light
@@ -105,8 +107,8 @@ const ThemeSwitchButton = (props: ThemeSwitchButtonProps) => {
         <Menu.Item
             leftSection={<IconMoonStars size={16} />}
             onClick={() => {
-            setColorScheme('dark');
-            switchTheme('ThemeD'); 
+                setColorScheme('dark');
+                switchTheme('ThemeD'); 
             }}
         >
             Chromalox Dark

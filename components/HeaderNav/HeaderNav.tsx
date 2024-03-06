@@ -31,7 +31,7 @@ import {
   IconSunHigh,
 } from '@tabler/icons-react';
 import { Logo } from '@/components';
-import { LanguagePicker } from '@/components';
+import { LanguagePicker, ThemeSwitchButton } from '@/components';
 import { useMediaQuery } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
 import { useTheme } from '@/theme/themeContext';
@@ -322,104 +322,9 @@ const HeaderNav = (props: HeaderNavProps) => {
           />
         )}
         <LanguagePicker type="collapsed" />
-        <Menu shadow="lg" width={200}>
-          <Menu.Target>
-            <Tooltip label="Switch color modes">
-              <ActionIcon variant="light">
-                {colorScheme === 'auto' ? (
-                  <IconCircleHalf2 size={ICON_SIZE} />
-                ) : colorScheme === 'dark' ? (
-                  <IconMoonStars size={ICON_SIZE} />
-                ) : (
-                  <IconSunHigh size={ICON_SIZE} />
-                )}
-              </ActionIcon>
-            </Tooltip>
-          </Menu.Target>
-          <Menu.Dropdown>
-            <Menu.Label tt="uppercase" ta="center" fw={600}>
-              Select color modes
-            </Menu.Label>
-            <Menu.Item
-              leftSection={<IconSunHigh size={16} />}
-              onClick={() => {
-                setColorScheme('light');
-                switchTheme('ThemeA'); 
-              }}
-            >
-              Spirax Group Light
-            </Menu.Item>
-            <Menu.Item
-              leftSection={<IconMoonStars size={16} />}
-              onClick={() => {
-                setColorScheme('dark');
-                switchTheme('ThemeA'); 
-              }}
-            >
-              Spirax Group Dark
-            </Menu.Item>
-            <Menu.Item
-              leftSection={<IconSunHigh size={16} />}
-              onClick={() => {
-                setColorScheme('light');
-                switchTheme('ThemeB'); 
-              }}
-            >
-              Spirax Sarco Light
-            </Menu.Item>
-            <Menu.Item
-              leftSection={<IconMoonStars size={16} />}
-              onClick={() => {
-                setColorScheme('dark');
-                switchTheme('ThemeB'); 
-              }}
-            >
-              Spirax Sarco Steam Dark
-            </Menu.Item>
-            <Menu.Item
-              leftSection={<IconSunHigh size={16} />}
-              onClick={() => {
-                setColorScheme('light');
-                switchTheme('ThemeC'); 
-              }}
-            >
-              Watson Marlow Light
-            </Menu.Item>
-            <Menu.Item
-              leftSection={<IconMoonStars size={16} />}
-              onClick={() => {
-                setColorScheme('dark');
-                switchTheme('ThemeC'); 
-              }}
-            >
-              Watson Marlow Dark
-            </Menu.Item>              
-            <Menu.Item
-              leftSection={<IconSunHigh size={16} />}
-              onClick={() => {
-                setColorScheme('light');
-                switchTheme('ThemeD');
-              }}
-            >
-              Chromalox Light
-            </Menu.Item>
-            <Menu.Item
-              leftSection={<IconMoonStars size={16} />}
-              onClick={() => {
-                setColorScheme('dark');
-                switchTheme('ThemeD'); 
-              }}
-            >
-              Chromalox Dark
-            </Menu.Item>                        
-            <Menu.Item
-              leftSection={<IconCircleHalf2 size={16} />}
-              onClick={() => setColorScheme('auto')}
-            >
-              Use System Colors
-            </Menu.Item>
-          </Menu.Dropdown>
-                </Menu>
+
+        <ThemeSwitchButton />
+
         <Menu shadow="lg" width={320}>
           <Menu.Target>
             <Indicator processing size={10} offset={6}>
