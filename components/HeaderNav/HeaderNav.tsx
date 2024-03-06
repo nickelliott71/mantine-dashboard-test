@@ -30,10 +30,13 @@ import {
   IconSearch,
   IconSunHigh,
 } from '@tabler/icons-react';
+import { Logo } from '@/components';
 import { LanguagePicker } from '@/components';
 import { useMediaQuery } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
 import { useTheme } from '@/theme/themeContext';
+import classes from './HeaderNav.module.css';
+
 
 const ICON_SIZE = 20;
 
@@ -222,15 +225,18 @@ const HeaderNav = (props: HeaderNavProps) => {
   return (
     <Group justify="space-between">
       <Group gap={0}>
-        <Tooltip label="Toggle side navigation">
-          <ActionIcon visibleFrom="md" onClick={toggleDesktop}>
-            {desktopOpened ? (
-              <IconLayoutSidebarLeftCollapse />
-            ) : (
-              <IconLayoutSidebarLeftExpand />
-            )}
-          </ActionIcon>
-        </Tooltip>
+        <Group gap="sm">
+          <Tooltip label="Toggle side navigation">
+            <ActionIcon visibleFrom="md" onClick={toggleDesktop}>
+              {desktopOpened ? (
+                <IconLayoutSidebarLeftCollapse />
+              ) : (
+                <IconLayoutSidebarLeftExpand />
+              )}
+            </ActionIcon>
+          </Tooltip>
+          <Logo className={classes.logo} />
+        </Group>
         <Burger
           opened={mobileOpened}
           onClick={toggleMobile}

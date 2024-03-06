@@ -1,4 +1,4 @@
-import { ActionIcon, createTheme, Loader } from '@mantine/core';
+import { ActionIcon, createTheme, CSSVariablesResolver, Loader } from '@mantine/core';
 
 export { ThemeProvider } from './themeContext';
 export { useTheme } from './themeContext';
@@ -20,6 +20,9 @@ export const ThemeA = createTheme({
     ],
   },
   primaryColor: 'brand',
+  other: {
+    primaryBackground: '#002841'
+  },
   defaultRadius: 'md',
   focusRing: 'always',
   fontFamily: 'Inter, Open Sans, sans-serif',
@@ -55,6 +58,9 @@ export const ThemeB = createTheme({
     ],
   },
   primaryColor: 'brand',
+  other: {
+    primaryBackground: '#012D72'
+  },  
   defaultRadius: 'md',
   focusRing: 'always',
   fontFamily: 'Inter, Open Sans, sans-serif',
@@ -90,6 +96,9 @@ export const ThemeC = createTheme({
     ],
   },
   primaryColor: 'brand',
+  other: {
+    primaryBackground: '#269ECF'
+  },   
   defaultRadius: 'md',
   focusRing: 'always',
   fontFamily: 'Inter, Open Sans, sans-serif',
@@ -125,6 +134,9 @@ export const ThemeD = createTheme({
     ],
   },
   primaryColor: 'brand',
+  other: {
+    primaryBackground: '#EE3A43'
+  },  
   defaultRadius: 'md',
   focusRing: 'always',
   fontFamily: 'Inter, Open Sans, sans-serif',
@@ -142,3 +154,17 @@ export const ThemeD = createTheme({
     }),
   },
 });
+
+const resolver: CSSVariablesResolver = (theme) => ({
+  variables: {
+    '--mantine-primary-background': theme.other.primaryBackground,
+  },
+  light: {
+    '--mantine-primary-background': theme.other.primaryBackground,
+  },
+  dark: {
+    '--mantine-primary-background': theme.other.primaryBackground,
+  },
+});
+
+export { resolver as cssVariablesResolver };

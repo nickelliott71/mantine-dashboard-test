@@ -12,11 +12,11 @@
     );
 
     @mixin light {
-        background-color: var(--mantine-primary-color-filled);
+        background-color: var(--mantine-primary-background);
     }
 
     @mixin dark {
-        background-color: var(--mantine-primary-color-light-color);
+        background-color: var(--mantine-primary-background);
     }
 
     @media (max-width: $mantine-breakpoint-md) {
@@ -69,7 +69,7 @@
     }
 
     @mixin dark {
-        color: var(--mantine-color-dark-8);
+        color: var(--mantine-color-gray-3);
     }
 }
 

@@ -2,10 +2,8 @@
 'use client';
 
 import React, { createContext, useContext, ReactNode, useState, FunctionComponent } from 'react';
-import { MantineProvider } from '@mantine/core';
-import { MantineThemeOverride } from '@mantine/core';
-import { ThemeA, ThemeB, ThemeC, ThemeD  } from '@/theme'; 
-
+import { MantineProvider, MantineThemeOverride } from '@mantine/core';
+import { ThemeA, ThemeB, ThemeC, ThemeD, cssVariablesResolver  } from '@/theme'; 
 
 // Extend the Mantine theme with a brandAssets field
 interface ExtendedTheme extends MantineThemeOverride {
@@ -83,7 +81,7 @@ export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({ children 
   // Include MantineProvider here, passing `theme` as the `theme` prop
   return (
     <ThemeContext.Provider value={{ theme, switchTheme }}>
-      <MantineProvider theme={theme} defaultColorScheme="auto">
+      <MantineProvider theme={theme} cssVariablesResolver={cssVariablesResolver} defaultColorScheme="auto">
         {children}
       </MantineProvider>
     </ThemeContext.Provider>
