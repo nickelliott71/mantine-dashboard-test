@@ -1,8 +1,10 @@
 'use client';
 
-import { Center, Stack } from '@mantine/core';
+import { Center, Stack, Group } from '@mantine/core';
 import Image from 'next/image';
 import React, { ReactNode } from 'react';
+import { Logo, ThemeSwitchButton } from '@/components';
+import classes from './page.module.css';
 
 type AuthProps = {
   children: ReactNode;
@@ -18,13 +20,10 @@ function SignInLayout({ children }: AuthProps) {
     >
       <Stack>
         <Center>
-          <Image
-            src="/logo-no-background.png"
-            alt="DesignSparx logo"
-            width={96}
-            height={96}
-            style={{ objectFit: 'contain' }}
-          />
+          <Group gap="sm">
+            <Logo className={classes.logo} />
+            <ThemeSwitchButton />
+          </Group>
         </Center>
         {children}
       </Stack>
