@@ -34,11 +34,11 @@ import TextEditor from '@/components/TextEditor';
 import UserButton from '@/components/UserButton';
 import ErrorAlert from '@/components/ErrorAlert';
 
-
 import PerformanceCard from '@/components/PerformanceCard/PerformanceCard';
 import PerformanceGrid from '@/components/PerformanceGrid/PerformanceGrid';
 import AlarmsGrid from '@/components/AlarmsGrid/AlarmsGrid';
 import SideStrip from '@/components/SideStrip/SideStrip';
+import ThemeSwitchButton from '@/components/ThemeSwitchButton/ThemeSwitchButton';
 
 export {
   Logo,
@@ -80,4 +80,5 @@ export {
   PerformanceGrid,
   AlarmsGrid,
   SideStrip,
+  ThemeSwitchButton,
 };
